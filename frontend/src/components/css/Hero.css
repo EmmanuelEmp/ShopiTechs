@@ -1,0 +1,135 @@
+/* Hero.css */
+
+/* Styles for the hero container */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px; */
+    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); /* Adjust the values as needed */
+    margin-bottom: 50px;
+}
+
+  
+  /* Styles for the left side of the hero */
+  .hero-left {
+    flex: 1;
+    line-height: 1.1;
+    margin-top: auto;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero-left .para p{
+    color: black; 
+    font-size: 60px;
+    font-weight: 600; 
+ }
+  /* Styles for the heading "NEW PRODUCTS" */
+  .hero-left h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the hand icon and text */
+  .hero-hand-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero-hand-icon p {
+    margin-right: 5px;
+  }
+  
+  /* Styles for the "New Arrivals" button */
+  .hero-latest-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .hero-latest-btn div {
+    background-color: #FF7A1A; /* Set your desired button color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .hero-latest-btn div img{
+    color: #2d2d2d;
+  }
+  .hero-latest-btn img {
+    margin-left: 10px;
+  }
+  .hero-left p{
+    color: black; 
+    font-size: 40px;
+    font-weight: 200; 
+ }
+ .arrow {
+    filter: invert(100%);
+  }
+  /* Styles for the right side of the hero */
+  .hero-right img {
+    width: 100%; /* Ensure the image fills its container */
+    max-width: 500px; /* Set your desired maximum width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .hero-right{
+    flex: 1;
+    display:flex;
+    max-width: 50%;
+     /* align-items: center; */
+    justify-content: center;
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */ 
+}
+
+@media(max-width:800px){
+  .hero-left{
+    /* font-size: 18px; */
+    margin-top: 30px;
+  }
+  .hero-left .para p{
+    font-size: 40px;
+  }
+  .hero-left h2{
+    font-size: 18px;
+    margin-top: 0px;
+  }
+ }
+
+  @media(max-width:500px){
+    .hero{
+        flex-direction: column;
+    }
+    .hero-right{
+       display: none;
+    }
+    .hero-left{
+        /* font-size: 18px; */
+        margin-top: 30px;
+    }
+    .hero-left .para p{
+      font-size: 40px;
+    }
+    .hero-left h2{
+      font-size: 18px;
+      margin-top: 30px;
+  }
+    .hero-left p{
+        font-size: 14px;
+    }
+    .hero-hand-icon img{
+        width: 55px;
+    }
+    .hero-latest-btn{
+        width: 200px;
+        height: 45px;
+        font-size: 14px; 
+    }
+}

@@ -1,0 +1,83 @@
+.navbar{
+    box-shadow: 0 1px 3px -2px black; 
+}
+
+.nav-logo p {
+    color: #171717; 
+    padding-left: 30px;
+}
+.nav-logo p span{
+    /* color: #d87c49; */
+    /* color: #ff4141; */
+    color:  #FF7A1A;
+}
+.border{
+    border-color:#626262;
+    /* color: #FF7235; */
+}
+.bg-s{
+    background: #FF7A1A;
+}
+.bg{
+    color: #2d2d2d;
+}
+
+.search{
+    padding-left: 70px;
+}
+.search input{
+    width: 250px;
+}
+.admin{
+    padding-right: 40px;
+}
+
+
+
+@media(max-width:1024px){
+    .navbar{
+        padding: 12px 30px;
+    }
+    .nav-menu{
+        gap: 25px;
+        font-size: 14px;
+    }
+    .nav-login-cart button{
+        width: 80px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .nav-login-cart img{
+        width: 30px;
+    }
+    .nav-cart-count{
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media(max-width:800px) {
+    .navbar{
+        padding: 10px 0px;
+    }
+    .nav-dropdown{
+        display: block;
+        rotate: -90deg;
+        transition: 0.5s;
+    }
+    .nav-menu{
+       display: none;
+       height: 80px;
+       width: 100%;
+       position: absolute;
+       background-color: white; 
+       justify-content: center;
+       top: 50px;
+    } 
+    .nav-menu-visible{
+        display: flex;
+    }
+    .nav-dropdown.open{
+        transform: rotate(90deg);
+    }
+}
