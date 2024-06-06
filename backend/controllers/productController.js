@@ -4,6 +4,9 @@ import { cloudinary } from "../config/cloudinary.js";
 import Product from "../models/productModel.js";
 import asyncHandler from "express-async-handler"
 
+// @Desc Get products
+// @route GET /
+// @access Public
 const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT
   const pageNumber = +req.query.pageNumber || 1
@@ -32,7 +35,9 @@ const getProducts = asyncHandler(async (req, res) => {
   res.json({ products, pageNumber, pages: Math.ceil(count / pageSize) })
 })
 
-
+// @Desc Get a product
+// @route GET /:id
+// @access Public
 const getProductbyId = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
   if (product) {
@@ -43,6 +48,9 @@ const getProductbyId = asyncHandler(async (req, res) => {
   }
 })
 
+// @Desc Create a product
+// @route POST /:id
+// @access Private
 const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
     name: "Sample Name",
@@ -60,6 +68,9 @@ const createProduct = asyncHandler(async (req, res) => {
   res.status(201).json(createdProduct)
 })
 
+// @Desc Update a product
+// @route PUT /:id
+// @access Private
 const updateProduct = asyncHandler(async (req, res) => {
   const { name, price, image, brand, category, countInStock, description } =
     req.body
@@ -83,7 +94,9 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 })
 
-
+// @Desc Delete a product
+// @route DELETE /:id
+// @access Private
 const deleteProduct = asyncHandler(async (req, res) => {
   const productId = req.params.id
 
@@ -98,6 +111,9 @@ const deleteProduct = asyncHandler(async (req, res) => {
   }
 })
 
+// @Desc User review a product
+// @route POST /:id/review
+// @access Private
 const createProductReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body
 
@@ -138,8 +154,8 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 
 // @Desc GET Popular Products in Phones
-// @route GET /popularinphone
-// @access Private
+// @route GET /popular
+// @access Public
 const popularProduct = asyncHandler (async (req, res) => {
   try {
       // Fetch the top 4 popular products in the "phones" category sorted by rating in descending order

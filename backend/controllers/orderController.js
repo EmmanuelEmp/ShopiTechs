@@ -2,6 +2,9 @@ import mongoose from "mongoose"
 import Order from "../models/orderModel.js"
 import asyncHandler from "express-async-handler"
 
+// @Desc Add items
+// @route POST /
+// @access Private
 const addOrderItems = asyncHandler(async (req, res) => {
   const {
     orderItems,
@@ -36,6 +39,9 @@ const addOrderItems = asyncHandler(async (req, res) => {
   }
 })
 
+// @Desc Get orders
+// @route GET /:id
+// @access Private
 const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     "user",
@@ -50,16 +56,25 @@ const getOrderById = asyncHandler(async (req, res) => {
   }
 })
 
+// @Desc Get your orders
+// @route GET /
+// @access Private
 const getUserOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id }).populate("user")
   res.json(orders)
 })
 
+// @Desc Get orders
+// @route GET /
+// @access Private
 const getOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find().populate("user", "id name")
   res.send(orders)
 })
 
+// @Desc Update orders
+// @route PATCH /deliver/:id
+// @access Private
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id)
   if (order) {

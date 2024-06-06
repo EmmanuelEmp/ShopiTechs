@@ -11,7 +11,7 @@ import passportUtil from "./utils/passport.js"
 import authRoutes from "./routes/authRoutes.js"
 import orderRoutes from "./routes/orderRoutes.js"
 import uploadRoutes from "./routes/uploadRoutes.js"
-import stripe from "./utils/stripe.js"
+import stripeUtil from "./utils/stripe.js"
 import path from "path"
 
 dotenv.config()
@@ -48,7 +48,7 @@ app.use(express.urlencoded({ extended: true }))
 // app.use('/upload', express.static("upload/images"))
 
 
-stripe(app)
+stripeUtil(app)
 
 app.use("/api/products", productRoutes)
 app.use("/api/users", userRoutes)

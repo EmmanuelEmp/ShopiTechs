@@ -4,6 +4,10 @@ import generateToken from "../utils/generateToken.js"
 import sendEmail from "../utils/sendEmail.js"
 import crypto from "crypto"
 
+
+//@desc Login User
+//route POST /login
+//@access public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -24,7 +28,9 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-
+//@desc Register User
+//route POST /register
+//@access public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body
 
@@ -48,10 +54,13 @@ const registerUser = asyncHandler(async (req, res) => {
     })
   } else {
     res.status(400)
-    throw new Error("Invalid User Credentials")
+    throw new Error("Invalid User Credentials");
   }
 })
 
+//@desc Update User Profile
+//route PUT /update
+//@access public
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.body._id)
 
@@ -71,6 +80,10 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 })
 
+
+//@desc Log Out User
+//route GET /logout
+//@access public
 const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -85,6 +98,9 @@ const logoutUser = asyncHandler(async (req, res) => {
   })
 })
 
+//@desc Forgot Password
+//route POST /forgot-password
+//@access public
 const forgotPassword = asyncHandler(async (req, res) => {
   const { email } = req.body
 
@@ -126,6 +142,9 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }
 })
 
+//@desc Reset Password
+//route PATCH /reset-password/:resetToken
+//@access public
 const resetPassword = asyncHandler(async (req, res) => {
   const hashedToken = crypto
     .createHash("sha256")
@@ -159,11 +178,17 @@ const resetPassword = asyncHandler(async (req, res) => {
   })
 })
 
+//@desc Get Users profile
+//route GET /
+//@access private
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find()
   res.json(users)
 })
 
+//@desc Update Users profile
+//route PUT /:id
+//@access private
 const updateUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
 
@@ -181,6 +206,9 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 })
 
+//@desc Get Users profile by ID
+//route GET /:id
+//@access private
 const getUserById = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
   if (user) {
@@ -191,6 +219,9 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 })
 
+//@desc Delete Users profile
+//route DELETE /:id
+//@access private
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
 

@@ -250,7 +250,7 @@ const Header = () => {
                         <Link to="/cart" className="bg flex items-center">
                             <FiShoppingCart className="mr-1" />
                             Cart
-                            <span className="bg-s rounded-full px-2 py-1 ml-2">{cartItems.length}</span>
+                            <span className="bg-s text-white rounded-full px-2 py-1 ml-2">{cartItems.length}</span>
                         </Link>
                         {userInfo && (
                             <div className="relative group ">
