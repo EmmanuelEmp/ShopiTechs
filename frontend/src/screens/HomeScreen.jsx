@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -11,7 +10,7 @@ import Offers from '../components/Offers';
 import NewsLetter from '../components/NewsLetter';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import { BACKEND_URL } from '../constants';
-import { setCredentials } from '../slices/userSlice'; // Corrected import statement
+import { setCredentials } from '../slices/userSlice';
 
 export default function HomeScreen() {
     const dispatch = useDispatch();
@@ -28,7 +27,7 @@ export default function HomeScreen() {
         } catch (error) {
             toast.error(error?.data?.message || error?.error);
         }
-    }, [dispatch])
+    }, [dispatch]);
 
     useEffect(() => {
         getUser();
@@ -56,7 +55,7 @@ export default function HomeScreen() {
         <>
             <Hero />
             <div className="my-8">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8"> {/* Adjust padding on different screen sizes */}
                     <div className="text-center mb-4">
                         <h1 className="text-[#171717] text-3xl font-semibold">NEW PRODUCTS</h1>
                         <div className="w-[120px] h-[7px] rounded-[10px] bg-[#252525] mx-auto mt-2"></div>
@@ -76,7 +75,7 @@ export default function HomeScreen() {
             </div>
             <Offers />
             <div className="my-8">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8"> {/* Adjust padding on different screen sizes */}
                     <div className="text-center mb-4">
                         <h1 className="text-[#171717] text-3xl font-semibold">Trending in Mobiles</h1>
                         <div className="w-[120px] h-[7px] rounded-[10px] bg-[#252525] mx-auto mt-2"></div>
@@ -95,7 +94,7 @@ export default function HomeScreen() {
                 </div>
             </div>
             <div className="my-8">
-              
+                <NewsLetter />
             </div>
         </>
     );

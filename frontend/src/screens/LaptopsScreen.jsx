@@ -30,7 +30,7 @@ const LaptopsScreen = () => {
       </div>
 
       {/* Content Section */}
-      <h1 className="text-center text-3xl font-bold mb-4">Laptops</h1>
+     
       {products.length === 0 ? (
         <p>No products found.</p>
       ) : (
