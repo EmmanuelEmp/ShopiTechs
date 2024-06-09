@@ -25,13 +25,13 @@ const app = express()
 //https://stackoverflow.com/questions/57009371/access-to-xmlhttprequest-at-from-origin-localhost3000-has-been-blocked
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+  res.header("Access-Control-Allow-Origin", "https://shopitechs-1.onrender.com")
   next()
 })
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:3000", "http://localhost:3000"],
+    origin: ["https://shopitechs-1.onrender.com", "https://shopitechs-1.onrender.com"],
     methods: "GET, POST, PATCH, DELETE, PUT",
     credentials: true,
   })
