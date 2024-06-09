@@ -10,8 +10,7 @@
     "backend": "nodemon backend/server",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "build": "npm install --legacy-peer-deps && npm install --prefix frontend --legacy-peer-deps && npm run build:frontend",
-    "build:frontend": "cd frontend && npm run build"
+    "build": "npm install && npm install --prefix frontend && cd frontend && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -37,18 +36,5 @@
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
     "stripe": "^15.3.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
   }
 }
