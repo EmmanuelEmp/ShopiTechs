@@ -10,7 +10,7 @@
     "backend": "nodemon backend/server",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "build": "npm install && npm install --prefix frontend && npx vite build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && cd frontend && npm run build"
   },
   "keywords": [],
   "author": "",
