@@ -41,9 +41,9 @@ app.use(cookieParser())
 passportUtil(app)
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 // app.use('/upload', express.static("upload/images"))
 
@@ -62,10 +62,10 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve()
   app.use("/uploads", express.static(path.join(__dirname, "uploads")))
-  app.use(express.static(path.join(__dirname, "/client/dist")))
+  app.use(express.static(path.join(__dirname, "/frontend/dist")))
   app.use("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-  )
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+  ) 
 } else {
   app.use("/uploads", express.static(path.join(__dirname, "uploads")))
   app.get("/", (req, res) => {
@@ -74,7 +74,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(notFound)
-app.use(errorHandler)
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)

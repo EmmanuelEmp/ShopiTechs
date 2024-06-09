@@ -101,46 +101,45 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@desc Forgot Password
 //route POST /forgot-password
 //@access public
-const forgotPassword = asyncHandler(async (req, res) => {
-  const { email } = req.body
+const forgotPassword = asyncHandler(async (req, res, next) => {
+  const { email } = req.body;
 
-  const user = await User.findOne({ email })
+  const user = await User.findOne({ email });
 
   if (!user) {
-    res.status(404)
+    res.status(404);
     throw new Error("User Not Found");
   }
 
   const resetToken = user.createPasswordResetToken();
-  user.save()
+  await user.save();
 
-  const resetUrl = `${req.protocol}://localhost:3000/reset-password/${resetToken}`
+  const resetUrl = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
 
-  const message = `Forgot Password? Click on this this link to reset your Password: ${resetUrl}`
+  const message = `Forgot Password? Click on this link to reset your Password: ${resetUrl}`;
 
   try {
     await sendEmail({
       email: user.email,
       subject: "Your Password reset token. (valid for 10mins)",
       message,
-    })
+    });
 
     res.status(200).json({
       message: "Token Sent to email!",
-    })
+    });
   } catch (error) {
-    user.passwordResetToken = undefined
-    user.passwordResetExpires = undefined
-    user.save()
-    console.log(error)
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    await user.save();
 
     res.status(500).json({
       status: "error",
-      message:
-        "There was an error in sending the email. Please Try again later",
-    })
+      message: "There was an error in sending the email. Please try again later",
+    });
   }
-})
+});
+
 
 //@desc Reset Password
 //route PATCH /reset-password/:resetToken
@@ -149,34 +148,35 @@ const resetPassword = asyncHandler(async (req, res) => {
   const hashedToken = crypto
     .createHash("sha256")
     .update(req.params.resetToken)
-    .digest("hex")
+    .digest("hex");
 
   const user = await User.findOne({
     passwordResetToken: hashedToken,
     passwordResetExpires: { $gt: Date.now() },
-  })
+  });
 
   if (!user) {
-    res.status(400).json({
+    return res.status(400).json({
       status: "fail",
       message: "Token is invalid or has expired",
-    })
+    });
   }
 
-  user.password = req.body.password
-  user.passwordResetToken = undefined
-  user.passwordResetExpires = undefined
-  user.save()
+  user.password = req.body.password;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+  await user.save();
 
-  generateToken(res, user._id)
+  generateToken(res, user._id);
 
   res.json({
     _id: user._id,
     name: user.name,
     email: user.email,
     isAdmin: user.isAdmin,
-  })
-})
+  });
+});
+
 
 //@desc Get Users profile
 //route GET /

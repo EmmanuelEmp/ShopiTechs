@@ -54,7 +54,7 @@ export default function ResetPassword() {
                 </div>
                 <button
                     type='submit'
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600"
+                    className="bg-[#FF7A1A] hover:bg-[#FF5A1A] text-white px-4 py-2 rounded-md mt-4"
                     onClick={handleResetPassword}
                 >
                     Submit
