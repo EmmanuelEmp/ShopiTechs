@@ -65,7 +65,7 @@ export default function HomeScreen() {
                     ) : error ? (
                         toast.error(error.message || 'Failed to load products')
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
                             {data?.products?.map((product, i) => (
                                 <Product key={i} product={product} />
                             ))}
@@ -85,16 +85,13 @@ export default function HomeScreen() {
                     ) : errorPopular ? (
                         toast.error(errorPopular)
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
                             {popularProducts.map((product, i) => (
                                 <Product key={i} product={product} />
                             ))}
                         </div>
                     )}
                 </div>
-            </div>
-            <div className="my-8">
-                <NewsLetter />
             </div>
         </>
     );
