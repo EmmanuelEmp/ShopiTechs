@@ -7,7 +7,6 @@ import Product from '../components/Product';
 import Spinner from '../components/Spinner';
 import Hero from '../components/Hero';
 import Offers from '../components/Offers';
-import NewsLetter from '../components/NewsLetter';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import { BACKEND_URL } from '../constants';
 import { setCredentials } from '../slices/userSlice';

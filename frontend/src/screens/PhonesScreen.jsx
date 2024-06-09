@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import Product from '../components/Product';
 import phone_banner from '../components/Assets/banner-phone.png';
 
-const LaptopsScreen = () => {
-  const category = 'phones'; // Set the category for laptops
+const PhonesScreen = () => {
+  const category = 'phones'; // Set the category for phones
   const { data, isLoading, error } = useGetProductsQuery({ category });
 
   useEffect(() => {
@@ -26,22 +26,23 @@ const LaptopsScreen = () => {
     <div>
       {/* Banner Section */}
       <div>
-        <img src={phone_banner} alt="Laptops Banner" className="w-full h-auto" />
+        <img src={phone_banner} alt="Phones Banner" className="w-full h-auto" />
       </div>
 
       {/* Content Section */}
-      {/* <h1 className="text-center text-3xl font-bold mb-4">Phones</h1> */}
-      {products.length === 0 ? (
-        <p>No products found.</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
-        </div>
-      )}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 my-8"> {/* Adjust padding on different screen sizes */}
+        {products.length === 0 ? (
+          <p>No products found.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <Product key={product._id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default LaptopsScreen;
+export default PhonesScreen;
