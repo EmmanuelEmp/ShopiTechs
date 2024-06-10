@@ -133,22 +133,7 @@ const Header = () => {
                 <Link to="/" className="text-white text-2xl nav-logo font-extrabold">
                     <p className="font-extrabold">Shopi<span>Tech.</span></p>
                 </Link>
-                <div className="flex items-center sm:hidden">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="p-2 rounded-md border w-36"
-                        value={keyword}
-                        onChange={(e) => setKeyword(e.target.value)}
-                    />
-                    <button
-                        className="bg-s text-white py-2 px-4 rounded-md ml-2"
-                        onClick={handleSearch}
-                    >
-                        Search
-                    </button>
-                </div>
-                <div className="sm:hidden">
+                <div className="sm:hidden flex items-center">
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="bg text-xl focus:outline-none"
@@ -175,7 +160,7 @@ const Header = () => {
                     <div className="relative group">
                         <button
                             onClick={() => setIsCategoriesMenuOpen(!isCategoriesMenuOpen)}
-                            className=" flex items-center bg"
+                            className="flex items-center bg"
                         >
                             Categories
                             {isCategoriesMenuOpen ? <FaCaretUp /> : <FaCaretDown />}
@@ -222,6 +207,19 @@ const Header = () => {
             </div>
             {isMobileMenuOpen && (
                 <div className="mt-4 sm:hidden">
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        className="p-2 rounded-md border w-full mb-2"
+                        value={keyword}
+                        onChange={(e) => setKeyword(e.target.value)}
+                    />
+                    <button
+                        className="bg-s text-white py-2 px-4 rounded-md w-full mb-2"
+                        onClick={handleSearch}
+                    >
+                        Search
+                    </button>
                     <div className="space-y-2">
                         <div className="relative group">
                             <button
