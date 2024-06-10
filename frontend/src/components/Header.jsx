@@ -133,11 +133,11 @@ const Header = () => {
                 <Link to="/" className="text-white text-2xl nav-logo font-extrabold">
                     <p className="font-extrabold">Shopi<span>Tech.</span></p>
                 </Link>
-                <div className="flex items-center search sm:hidden">
+                <div className="flex items-center sm:hidden">
                     <input
                         type="text"
                         placeholder="Search"
-                        className="p-2 rounded-md border bg w-full"
+                        className="p-2 rounded-md border w-36"
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                     />
