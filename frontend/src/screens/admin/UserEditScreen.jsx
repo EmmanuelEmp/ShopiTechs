@@ -75,7 +75,7 @@ export default function UserEditScreen() {
                 </div>
                 <button
                     type="button"
-                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                    className="text-white py-2 px-4 rounded-md bg-[#FF7A1A] hover:bg-[#383838]"
                     onClick={handleUpdateUser}
                 >
                     Update
