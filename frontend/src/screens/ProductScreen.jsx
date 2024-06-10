@@ -39,7 +39,7 @@ export default function ProductScreen() {
   return (
     <div className="container mx-auto mt-8 p-4">
       <Link to={'/'}>
-        <button className="bg-[#313133] bg-[#FF5A1A] text-white px-4 py-2 rounded-md mb-4">Go Back</button>
+        <button className="bg-[#313133] hover:bg-[#2d2d2d] text-white px-4 py-2 rounded-md mb-4">Go Back</button>
       </Link>
       {isLoading ? (
         <Spinner />
