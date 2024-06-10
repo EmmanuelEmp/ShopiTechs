@@ -39,7 +39,7 @@ export default function ProductScreen() {
   return (
     <div className="container mx-auto mt-8 p-4">
       <Link to={'/'}>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-md mb-4">Go Back</button>
+        <button className="bg-[#313133] bg-[#FF5A1A] text-white px-4 py-2 rounded-md mb-4">Go Back</button>
       </Link>
       {isLoading ? (
         <Spinner />
@@ -48,7 +48,7 @@ export default function ProductScreen() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="md:col-span-1 flex justify-center">
-            <img src={product.image} alt={product.name} className="w-3/4 h-auto md:w-2/3 lg:w-1/2 rounded-md shadow-md" />
+            <img src={product.image} alt={product.name} className="w-full h-auto md:w-4/5 lg:w-3/4 rounded-md shadow-md" />
           </div>
           <div className="md:col-span-1 p-4">
             <h1 className="text-2xl font-semibold">{product.name}</h1>

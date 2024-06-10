@@ -17,7 +17,7 @@
     flex: 1;
     line-height: 1.1;
     margin-top: auto;
-    padding-left: 50px;
+    padding-left: 90px;
     display: flex;
     flex-direction: column;
   }
@@ -93,7 +93,7 @@
   .hero-left{
     /* font-size: 18px; */
     margin-top: 30px;
-    padding-left: 80px;
+    padding-left: 90px;
   }
   .hero-left .para p{
     font-size: 40px;
@@ -114,7 +114,7 @@
     .hero-left{
         /* font-size: 18px; */
         margin-top: 30px;
-        padding-left: 40px;
+        padding-left: 35px;
     }
     .hero-left .para p{
       font-size: 40px;

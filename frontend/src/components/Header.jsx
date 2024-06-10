@@ -214,7 +214,7 @@ const Header = () => {
                         placeholder="Search"
                         className="p-2 rounded-md border bg w-full mb-2"
                     />
-                    <button className="bg-s text-white py-2 px-4 rounded-md w-full mb-2">
+                    <button className="bg-[FF7A1A]  hover:bg-[#FF4A1A] text-white py-2 px-4 rounded-md w-full mb-2">
                         Search
                     </button>
                     <div className="space-y-2">
