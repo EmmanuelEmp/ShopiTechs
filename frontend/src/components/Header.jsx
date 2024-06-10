@@ -27,7 +27,7 @@ const Header = () => {
 
     useEffect(() => {
         if (userInfo) {
-            dispatch(loadCartItems()); // Load cart items on login
+            dispatch(loadCartItems());
         }
     }, [dispatch, userInfo]);
 
@@ -217,17 +217,17 @@ const Header = () => {
             {isMobileMenuOpen && (
                 <div className="mt-4 sm:hidden">
                     <div className="space-y-2">
-                        <div className="relative group">
+                        <div className="relative">
                             <button
                                 onClick={() => setIsCategoriesMenuOpen(!isCategoriesMenuOpen)}
-                                className="bg flex items-center"
+                                className="bg flex items-center w-full"
                             >
                                 Categories
                                 {isCategoriesMenuOpen ? <FaCaretUp /> : <FaCaretDown />}
                             </button>
                             <ul
-                                className={`absolute z-20 ${isCategoriesMenuOpen ? 'block' : 'hidden'
-                                    } bg-white p-2 mt-2 space-y-2 bg border rounded-md`}
+                                className={`w-full ${isCategoriesMenuOpen ? 'block' : 'hidden'
+                                    } bg-white p-2 mt-2 space-y-2 border rounded-md`}
                             >
                                 <li>
                                     <Link to="/laptops">
@@ -252,12 +252,12 @@ const Header = () => {
                             <span className="bg-s text-white rounded-full px-2 py-1 ml-2">{cartItems.length}</span>
                         </Link>
                         {userInfo && (
-                            <div className="relative group">
+                            <div className="relative">
                                 {renderProfileButton()}
                             </div>
                         )}
                         {userInfo?.isAdmin && (
-                            <div className="relative group">
+                            <div className="relative">
                                 {renderAdminButton()}
                             </div>
                         )}
