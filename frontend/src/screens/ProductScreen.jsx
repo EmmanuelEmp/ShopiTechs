@@ -47,7 +47,7 @@ export default function ProductScreen() {
         toast.error(error?.data?.message || error?.error)
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="md:col-span-1 flex justify-center">
+          <div className="md:col-span-1 flex justify-center p-4">
             <img src={product.image} alt={product.name} className="w-full h-auto md:w-4/5 lg:w-3/4 rounded-md shadow-md" />
           </div>
           <div className="md:col-span-1 p-4">
