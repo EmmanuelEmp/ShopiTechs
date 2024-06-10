@@ -130,37 +130,31 @@ const Header = () => {
     return (
         <nav className="navbar p-4">
             <div className="flex items-center justify-between">
-                <Link to="/" className="text-white text-2xl nav-logo font-extrabold">
-                    <p className="font-extrabold">Shopi<span>Tech.</span></p>
-                </Link>
-                <div className="sm:hidden flex items-center">
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="bg text-xl focus:outline-none"
-                    >
-                        ☰
-                    </button>
-                </div>
-                <div className="hidden sm:flex items-center space-x-4">
+                <div className="flex items-center">
+                    <Link to="/" className="text-white text-2xl nav-logo font-extrabold">
+                        <p className="font-extrabold">Shopi<span>Tech.</span></p>
+                    </Link>
                     <div className="flex items-center justify-between search">
                         <input
                             type="text"
                             placeholder="Search"
-                            className="ml-4 p-2 rounded-md border"
+                            className="ml-4 p-2 rounded-md border hidden sm:block"
                             value={keyword}
                             onChange={(e) => setKeyword(e.target.value)}
                         />
                         <button
-                            className="bg-s text-white py-2 px-4 rounded-md ml-2"
+                            className="bg-s text-white py-2 px-4 rounded-md hidden sm:block ml-2"
                             onClick={handleSearch}
                         >
                             Search
                         </button>
                     </div>
+                </div>
+                <div className="hidden sm:flex items-center space-x-4">
                     <div className="relative group">
                         <button
                             onClick={() => setIsCategoriesMenuOpen(!isCategoriesMenuOpen)}
-                            className="flex items-center bg"
+                            className=" flex items-center bg"
                         >
                             Categories
                             {isCategoriesMenuOpen ? <FaCaretUp /> : <FaCaretDown />}
@@ -204,22 +198,26 @@ const Header = () => {
                     )}
                     {!userInfo && renderSignInButton()}
                 </div>
-            </div>
-            {isMobileMenuOpen && (
-                <div className="mt-4 sm:hidden">
+                <div className="sm:hidden">
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="bg text-xl focus:outline-none"
+                    >
+                        ☰
+                    </button>
                     <input
                         type="text"
                         placeholder="Search"
-                        className="p-2 rounded-md border w-full mb-2"
-                        value={keyword}
-                        onChange={(e) => setKeyword(e.target.value)}
+                        className="p-2 rounded-md border bg w-full mb-2"
                     />
-                    <button
-                        className="bg-s text-white py-2 px-4 rounded-md w-full mb-2"
-                        onClick={handleSearch}
-                    >
+                    <button className="bg-[#FF7A1A]  hover:bg-[#FF4A1A] text-white py-2 px-4 rounded-md w-full mb-2">
                         Search
                     </button>
+                </div>
+            </div>
+            {isMobileMenuOpen && (
+                <div className="mt-4 sm:hidden">
+                   
                     <div className="space-y-2">
                         <div className="relative group">
                             <button
