@@ -114,7 +114,7 @@ const forgotPassword = asyncHandler(async (req, res, next) => {
   const resetToken = user.createPasswordResetToken();
   await user.save();
 
-  const resetUrl = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
+  const resetUrl = `https://shopitechs-1.onrender.com/reset-password/${resetToken}`;
 
   const message = `Forgot Password? Click on this link to reset your Password: ${resetUrl}`;
 
