@@ -88,11 +88,19 @@
     margin: 0; /* Reset margin */
     padding: 0; /* Reset padding */ 
 }
+@media(max-width:1000px){
+  .hero-left{
+    /* font-size: 18px; */
+    margin-top: 45px;
+    padding-left: 90px;
+  }
+
+ }
 
 @media(max-width:800px){
   .hero-left{
     /* font-size: 18px; */
-    margin-top: 30px;
+    margin-top: 50px;
     padding-left: 90px;
   }
   .hero-left .para p{
